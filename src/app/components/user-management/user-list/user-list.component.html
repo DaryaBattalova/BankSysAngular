@@ -1,0 +1,33 @@
+<h1 class="display-4 title text-center">Accounts</h1>
+<div class="container">
+  <div id="emailSearch" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text">Search by email:</label>
+    </div>
+    <input class="form-control"
+            placeholder="Enter email"
+            type="text"
+            id="email"
+            name="email"
+            (input)="startSearch($event.target.value)" />
+  </div>
+  <div class="accounts">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th class="clickable" (click)="setOrder('email')">Email</th>
+          <th>Roles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of pagedItems; let i = index">
+          <td class="clickable" routerLink="/accounts/{{account.id}}">{{account.email}}</td>
+          <td class="clickable" routerLink="/accounts/{{account.id}}">{{account.roles}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+      <button >Add a bank worker</button>
+    </div>
+</div>

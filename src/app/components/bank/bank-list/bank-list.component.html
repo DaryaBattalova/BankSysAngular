@@ -1,0 +1,25 @@
+  <div class="container">
+    <table class="table table-condensed">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>USD(buy)</th>
+          <th>USD(sell)</th>
+          <th>EUR(buy)</th>
+          <th>EUR(sell)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="timeTableRow" *ngFor="let rate of rates" routerLink="/api/v1/orderTicket/">
+          <td>{{rate.bank.name}}</td>
+          <td>{{rate.bank.address}}</td>
+          <td>{{rate.usdPurchase}}</td>
+          <td>{{rate.usdSale}}</td>
+          <td>{{rate.eurPurchase}}</td>
+          <td>{{rate.eurSale}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

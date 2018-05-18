@@ -1,0 +1,14 @@
+.background_img {
+    height:63vh;
+    background-size: 40%;
+    border-radius: 0;
+    background-position: right;
+    background-size: cover;
+    background-image : url('/assets/brand/exchange.jpg')   
+}
+
+.custom-row {
+    padding-left: 3%;
+    padding-top: 20%; 
+    margin-right: 0;
+} 

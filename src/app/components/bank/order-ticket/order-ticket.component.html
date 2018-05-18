@@ -1,0 +1,56 @@
+<h3>Currency converter</h3>
+<div>
+  <table class="table table">
+    <tr>
+      <td>
+        <p>Currency you have:</p>
+        <select [(ngModel)]="initialCurrValue" (change) = "onBaseSelectChange(initialCurrValue)">
+          <option>USD</option>
+          <option>EUR</option>
+          <option>BYN</option>
+        </select>
+        <p>Sum:</p>
+        <input #initialCurrency type="text" (input) = "onInitialCurrencyInputChange(initialCurrency.value)">
+      </td>
+      <td>
+        <p>Currency you need:</p>
+        <select [(ngModel)]="goalCurrValue"(change) = "onGoalSelectChange(goalCurrValue)">
+          <option>BYN</option>
+          <option>USD</option>
+          <option>EUR</option>
+        </select>
+        <p>Sum:</p>
+        <input #resultSum type="text" readonly value={{this.result}}>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="exchange">
+<button type="submit" class="btn btn-outline-success" (click)="onExchangeClick()">Exchange</button>
+</div>
+
+<div>
+<h3>Take a ticket to bank to exchange your currency</h3>
+</div>
+
+<div>
+<label>
+  Date
+  <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]="dat" (ngModelChange)="onDateChanged($event)">
+  <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+</label>
+</div>
+
+<div *ngIf="dateIsChosen" class="container">
+  <table class="table table-bordered">
+      <tbody>
+          <tr *ngFor="let row of buildArr(listOfFreeTimes)">
+              <td *ngFor="let item of row" class="timeTableCell" routerLink="/api/v1/banks/bankList/" (click) = "onCellClick($event)" >{{item}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<div>
+  <button class="btn btn-outline-success" (click)="getTicket()">Get Ticket</button>
+</div>
