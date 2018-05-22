@@ -1,6 +1,7 @@
-<h3>Currency converter</h3>
+<div class="background_img page-background">
+<h3 class="order-ticket-heading">Currency converter</h3>
 <div>
-  <table class="table table">
+  <table class="table table-bordered">
     <tr>
       <td>
         <p>Currency you have:</p>
@@ -30,27 +31,30 @@
 </div>
 
 <div>
-<h3>Take a ticket to bank to exchange your currency</h3>
+<h3 class="order-ticket-heading">Take a ticket to bank to exchange your currency</h3>
 </div>
 
 <div>
 <label>
-  Date
+    Choose a date please:
   <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]="dat" (ngModelChange)="onDateChanged($event)">
   <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
 </label>
 </div>
 
 <div *ngIf="dateIsChosen" class="container">
-  <table class="table table-bordered">
+  <table class="table table-bordered timeTable">
       <tbody>
           <tr *ngFor="let row of buildArr(listOfFreeTimes)">
-              <td *ngFor="let item of row" class="timeTableCell" routerLink="/api/v1/banks/bankList/" (click) = "onCellClick($event)" >{{item}}</td>
+              <td *ngFor="let item of row" class="timeTableCell" (click) = "onCellClick($event)" >{{item}}</td>
           </tr>
       </tbody>
   </table>
 </div>
 
 <div>
-  <button class="btn btn-outline-success" (click)="getTicket()">Get Ticket</button>
+  <div *ngIf="cellHasColor">You have chosen a ticket for {{this.curDate}}</div>
+    <button *ngIf="cellHasColor" class="btn btn-outline-success" (click)="getTicket()">Get Ticket</button>
+  </div>
+
 </div>

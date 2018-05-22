@@ -26,6 +26,7 @@ export class OrderTicketComponent implements OnInit {
   public chosenDate: Date;
   public flag: string;
   public cellHasColor: Boolean;
+  public curDate: string;
 
   //currency exchange
   private curFrom: string;
@@ -42,6 +43,7 @@ export class OrderTicketComponent implements OnInit {
     this.bankId = 1;
     this.dateIsChosen = false;
     this.cellHasColor = false;
+    this.chosenTime = "00:00";
   }
 
   getTicket() {
@@ -55,9 +57,10 @@ export class OrderTicketComponent implements OnInit {
 
   onCellClick(event:any)
   {
+    console.log(event);
     this.chosenTime = event.target.innerHTML;
     this.cellHasColor = true;
-    console.log(this.chosenTime);
+    this.curDate = this.getChoosenDate();
   }
 
    getListOfFreeTimeByDay( bankId: number, date: Date): void
@@ -73,9 +76,13 @@ export class OrderTicketComponent implements OnInit {
   createTicket(bankId: number, date: Date, time: string)
   {
       console.log("forTicket: " + bankId + " " + date + " " + time );
-
       this.orderTicketService.createTicket({ bankId, date, time } as TicketInfo)
       .subscribe(flag => { console.log('ts')});
+  }
+
+  getChoosenDate()
+  {
+    return this.chosenDate.getDate() +  "." + (this.chosenDate.getMonth() + 1)  + "."  + this.chosenDate.getFullYear();
   }
 
 buildArr(theArr: String[]): String[][]{
@@ -113,7 +120,7 @@ onGoalSelectChange(value: string)
 onInitialCurrencyInputChange(value: string)
 {
   this.sumFrom = value;
-    console.log(this.sumFrom);
+  console.log(this.sumFrom);
 }
 
 ExchangeCurrency(BankId: number, SumOfMoney: string, CurrencyFrom: string, CurrencyTo: string)

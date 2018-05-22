@@ -1,4 +1,24 @@
 @import "~ng-pick-datetime/assets/style/picker.min.css";
-  td.timeTableCell:hover { background-color:#40fd90; cursor: pointer}
+  td.timeTableCell:hover { background-color: #d2d1e6; cursor: pointer}
 
   button.exchange { margin: 10px 1px0; cursor: pointer}
+
+.order-ticket-heading  {
+    margin-left: 40pt;
+    color: #383380;
+  }
+
+  .background_img {
+    height: 105vh;
+    background-size: 100%;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    background-image : url('/assets/brand/moneyorigami.jpeg')    
+}
+
+.timeTable
+{
+  background-color: beige;
+}
+
