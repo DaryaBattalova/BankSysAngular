@@ -18,6 +18,9 @@ import { BankListComponent } from './components/bank/bank-list/bank-list.compone
 import { BankWorkerComponent } from './components/bank/bank-worker/bank-worker.component';
 import { RegisterNotificationComponent } from './components/security/register-notification/register-notification.component';
 import { OrderTicketComponent } from './components/bank/order-ticket/order-ticket.component';
+import { TicketComponent } from './components/bank/ticket/ticket.component';
+import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -39,7 +42,11 @@ const routes: Routes = [
   { path: 'successfulRegistration', component: RegisterNotificationComponent },
   { path: 'api/v1/orderTicket', component: OrderTicketComponent },
   { path: 'api/v1/tickets/:bankIdAndDate', component: OrderTicketComponent },
-  { path: 'api/v1/tickets/:ticketCreation', component: OrderTicketComponent }
+  { path: 'api/v1/ticket', component: TicketComponent },
+  { path: 'api/v1/tickets/:ticketCreation', component: TicketComponent },
+  { path: 'api/v1/ticketView', component: TicketViewComponent }
+
+  
 ];
 
 @NgModule({

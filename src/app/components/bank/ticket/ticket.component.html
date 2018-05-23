@@ -1,0 +1,28 @@
+<div class="background_img page-background">
+  <div>
+  <h3 class="order-ticket-heading">Take a ticket to bank</h3>
+  </div>
+  
+ <div>
+  <label>
+      Choose a date please:
+    <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]="dat" (ngModelChange)="onDateChanged($event)">
+    <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+  </label>
+  </div> 
+  
+  <div *ngIf="dateIsChosen" class="container">
+    <table class="table table-bordered timeTable">
+        <tbody>
+            <tr *ngFor="let row of buildArr(listOfFreeTimes)" >
+                <td *ngFor="let item of row" class="timeTableCell" (click) = "onCellClick($event)" routerLink="/api/v1/ticketView">{{item}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  
+  <div>
+    <div *ngIf="cellHasColor">You have chosen a ticket for {{this.curDate}} at {{this.chosenTime}}</div>
+    </div>
+  
+  </div>

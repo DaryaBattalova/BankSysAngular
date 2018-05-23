@@ -1,1 +1,10 @@
 tr.timeTableRow:hover { background-color:#a9a6cc; cursor: pointer}
+
+.background_img {
+    height: 93vh;
+    background-size: 100%;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    background-image : url('/assets/brand/bank-background.jpg');
+  }

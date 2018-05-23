@@ -37,6 +37,8 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderTicketService } from './services/bank/order-ticket.service';
+import { TicketComponent } from './components/bank/ticket/ticket.component';
+import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { OrderTicketService } from './services/bank/order-ticket.service';
     BankListComponent,
     BankWorkerComponent,
     RegisterNotificationComponent,
-    OrderTicketComponent
+    OrderTicketComponent,
+    TicketComponent,
+    TicketViewComponent
   ],
   imports: [
     BrowserModule,
