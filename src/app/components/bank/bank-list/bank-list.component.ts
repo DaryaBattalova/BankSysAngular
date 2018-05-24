@@ -33,10 +33,6 @@ export class BankListComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
   }
 
-  newMessage() {
-    this.data.changeMessage(this.bankId.toString());
-  }
-
   getBanks(): void {
     this.bankService.getBanks()
     .subscribe(banks => this.banks = banks);

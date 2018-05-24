@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../services/bank/data.service';
 
 @Component({
   selector: 'app-ticket-view',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketViewComponent implements OnInit {
 
-  constructor() { }
+  date:string;
+  time: string;
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.currentDateChosenByUser.subscribe(date => this.date = date);
+    this.data.currentTimeChosenByUser.subscribe(time => this.time = time);
   }
 
 }

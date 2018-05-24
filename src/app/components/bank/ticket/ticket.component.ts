@@ -27,24 +27,22 @@ export class TicketComponent implements OnInit {
   message: string;
 
   ngOnInit() {
-   // this.bankId = 1;
     this.dateIsChosen = false;
     this.cellHasColor = false;
     this.chosenTime = "00:00";
     this.data.currentMessage.subscribe(message => this.message = message);
     this.bankId = Number(this.message);
-  }
+  } 
 
   getTicket() {
     this.createTicket(this.bankId, this.chosenDate, this.chosenTime);
   }
 
   onDateChanged(choosedDate: Date) {
-    console.log(new Date());
-    console.log(choosedDate)
     if(choosedDate >= new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()))
     {
       this.chosenDate = choosedDate;
+      this.data.changeDate(this.getChoosenDate().toString());
       this.getListOfFreeTimeByDay(this.bankId , this.chosenDate);
     }
 
@@ -55,6 +53,7 @@ export class TicketComponent implements OnInit {
     console.log(event);
     this.chosenTime = event.target.innerHTML;
     this.cellHasColor = true;
+    this.data.changeTime(this.chosenTime);
     this.curDate = this.getChoosenDate();
   }
 
@@ -79,22 +78,5 @@ export class TicketComponent implements OnInit {
   {
     return this.chosenDate.getDate() +  "." + (this.chosenDate.getMonth() + 1)  + "."  + this.chosenDate.getFullYear();
   }
-
-buildArr(theArr: String[]): String[][]{
-    var arrOfarr = [];
-    for(var i = 0; i < theArr.length ; i+=4) {
-        var row = [];
-
-        for(var x = 0; x < 4; x++) {
-          var value = theArr[i + x];
-            if (!value) {
-                break;
-            }
-            row.push(value);
-        }
-        arrOfarr.push(row);
-    }
-     return arrOfarr;
-}
 
 }
