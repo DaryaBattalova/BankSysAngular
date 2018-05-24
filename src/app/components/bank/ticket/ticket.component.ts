@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BankIdAndDate } from '../../../models/bank/bankIdAndDate';
 import { OrderTicketService } from '../../../services/bank/order-ticket.service';
 import { TicketInfo } from '../../../models/bank/TicketInfo';
+import { DataService } from '../../../services/bank/data.service';
 
 @Component({
   selector: 'app-ticket',
@@ -21,22 +22,32 @@ export class TicketComponent implements OnInit {
   public cellHasColor: Boolean;
   public curDate: string;
 
-  constructor(private orderTicketService: OrderTicketService) { }
+  constructor(private data: DataService, private orderTicketService: OrderTicketService) { }
+
+  message: string;
 
   ngOnInit() {
-    this.bankId = 1;
+   // this.bankId = 1;
     this.dateIsChosen = false;
     this.cellHasColor = false;
     this.chosenTime = "00:00";
+    this.data.currentMessage.subscribe(message => this.message = message);
+    this.bankId = Number(this.message);
   }
 
   getTicket() {
-    this.createTicket(1, this.chosenDate, this.chosenTime);
+    this.createTicket(this.bankId, this.chosenDate, this.chosenTime);
   }
 
   onDateChanged(choosedDate: Date) {
-    this.chosenDate = choosedDate;
-    this.getListOfFreeTimeByDay(this.bankId , this.chosenDate);
+    console.log(new Date());
+    console.log(choosedDate)
+    if(choosedDate >= new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()))
+    {
+      this.chosenDate = choosedDate;
+      this.getListOfFreeTimeByDay(this.bankId , this.chosenDate);
+    }
+
   }
 
   onCellClick(event:any)
@@ -47,7 +58,7 @@ export class TicketComponent implements OnInit {
     this.curDate = this.getChoosenDate();
   }
 
-   getListOfFreeTimeByDay( bankId: number, date: Date): void
+   getListOfFreeTimeByDay(bankId: number, date: Date): void
   {
      this.orderTicketService.getListOfFreeTime({ bankId, date } as BankIdAndDate)
     .subscribe(listOfFreeTimes => {

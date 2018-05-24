@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="timeTableRow" *ngFor="let rate of rates" routerLink="/api/v1/orderTicket/">
+        <tr class="timeTableRow" *ngFor="let rate of rates" (click)=getChosenBankId(rate.bank.id) routerLink="/api/v1/orderTicket/" >
           <td>{{rate.bank.name}}</td>
           <td>{{rate.bank.address}}</td>
           <td>{{rate.usdPurchase}}</td>
@@ -23,5 +23,6 @@
       </tbody>
     </table>
   </div>
-</div>
+  <button (click)="newMessage()">Hello</button>
 
+</div>

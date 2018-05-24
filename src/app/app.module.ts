@@ -39,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderTicketService } from './services/bank/order-ticket.service';
 import { TicketComponent } from './components/bank/ticket/ticket.component';
 import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.component';
+import { DataService } from './services/bank/data.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.c
     BankService,
     CurrencyExchangeService,
     BankWorkerService,
-    OrderTicketService
+    OrderTicketService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
