@@ -8,5 +8,10 @@
   border-radius: 0;
   background-position: center;
   background-size: cover;
-  background-image : url('/assets/brand/bank-login.jpg');
+  background-image : url('/assets/brand/bank-login (1).jpg');
 }
+
+.btn-link{
+  color: brown;
+}
+
