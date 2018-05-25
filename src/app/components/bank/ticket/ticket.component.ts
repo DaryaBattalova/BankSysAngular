@@ -21,6 +21,9 @@ export class TicketComponent implements OnInit {
   public flag: string;
   public cellHasColor: Boolean;
   public curDate: string;
+  public userNameAndSurName: string[];
+  public name: string;
+  public d: string;
 
   constructor(private data: DataService, private orderTicketService: OrderTicketService) { }
 
@@ -42,8 +45,11 @@ export class TicketComponent implements OnInit {
     if(choosedDate >= new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()))
     {
       this.chosenDate = choosedDate;
-      this.data.changeDate(this.getChoosenDate().toString());
+      this.data.changeDate(this.chosenDate);
       this.getListOfFreeTimeByDay(this.bankId , this.chosenDate);
+    }
+    else{
+      alert("date should be greater than today")
     }
 
   }
@@ -59,9 +65,9 @@ export class TicketComponent implements OnInit {
 
    getListOfFreeTimeByDay(bankId: number, date: Date): void
   {
-     this.orderTicketService.getListOfFreeTime({ bankId, date } as BankIdAndDate)
+    //this.d = this.getChoosenDate();
+    this.orderTicketService.getListOfFreeTime({ bankId, date } as BankIdAndDate)
     .subscribe(listOfFreeTimes => {
-      console.log(listOfFreeTimes)
       this.listOfFreeTimes = listOfFreeTimes;
       this.dateIsChosen = true;
     });
@@ -69,9 +75,18 @@ export class TicketComponent implements OnInit {
 
   createTicket(bankId: number, date: Date, time: string)
   {
-      console.log("forTicket: " + bankId + " " + date + " " + time );
+     // console.log("forTicket: " + bankId + " " + date + " " + time );
       this.orderTicketService.createTicket({ bankId, date, time } as TicketInfo)
-      .subscribe(flag => { console.log('ts')});
+      .subscribe(userNameAndSurName => {
+        this.userNameAndSurName = userNameAndSurName;
+     //   this.name = this.userNameAndSurName[0];
+        console.log("name: " + this.name);
+        this.data.changeName(this.userNameAndSurName[0]);
+
+      });
+
+     // console.log("name1: " + this.userNameAndSurName[0]);
+     // this.data.changeSurname(this.userNameAndSurName[1]);
   }
 
   getChoosenDate()

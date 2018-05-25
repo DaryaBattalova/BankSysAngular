@@ -20,7 +20,7 @@
     <div class="container">
       <div *ngIf="cellHasColor">You have chosen a ticket for {{this.curDate}} at {{this.chosenTime}}</div>
       <div *ngIf="cellHasColor">
-          <button class="btn btn-outline-success takeTicket" routerLink="/api/v1/ticketView">Get ticket!</button>
+          <button class="btn btn-outline-success takeTicket" (click)="getTicket()" routerLink="/api/v1/ticketView">Get ticket!</button>
       </div>
     </div>
     

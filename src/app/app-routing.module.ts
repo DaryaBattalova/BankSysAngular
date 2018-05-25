@@ -41,11 +41,11 @@ const routes: Routes = [
   { path: 'api/v1/bankWorker', component: BankWorkerComponent },
   { path: 'successfulRegistration', component: RegisterNotificationComponent },
   { path: 'api/v1/orderTicket', component: OrderTicketComponent },
-  { path: 'api/v1/tickets/:bankIdAndDate', component: OrderTicketComponent },
+  { path: 'api/v1/tickets/bankIdAndDate', component: OrderTicketComponent },
   { path: 'api/v1/ticket', component: TicketComponent },
   { path: 'api/v1/tickets/:ticketCreation', component: TicketComponent },
-  { path: 'api/v1/ticketView', component: TicketViewComponent }
-
+  { path: 'api/v1/ticketView', component: TicketViewComponent },
+  { path: 'api/v1/tickets/:getUserNameAndSurname', component: TicketViewComponent }
   
 ];
 
