@@ -11,40 +11,45 @@ import { DateAndTime } from '../../../models/bank/DateAndTime';
 export class TicketViewComponent implements OnInit {
 
   date:Date;
-  d: string;
+  shortDate: string;
   time: string;
   userName: string;
   userSurname: string;
   userNameAndSurname: string[];
+  nameIsGot: Boolean;
+  ticketIsSent: Boolean;
 
   constructor(private data: DataService, private orderTicketService: OrderTicketService) { }
 
   ngOnInit() {
     this.data.currentDateChosenByUser.subscribe(date => this.date = date);
     this.data.currentTimeChosenByUser.subscribe(time => this.time = time);
-    this.d = "27.05.2018";
-
-  //  this.data.currentUserName.subscribe(userName => this.userName = userName);
-   // this.data.currentUserSurname.subscribe(userSurname => this.userSurname = userSurname);
+    this.shortDate = this.getChoosenDate();
+    this.nameIsGot = false;
+    this.getUserNameAndSurname();
+    this.ticketIsSent = false;
+    this.sendTicketEmail();
   }
 
-  newMessage()
-  {
-    this.getUserNameAndSurname(this.date, this.time);
-    console.log(this.userNameAndSurname);
-  }
 
-  getUserNameAndSurname(date: Date, time: string)
+  getUserNameAndSurname()
   {
-    this.orderTicketService.getUserNameAndSurname({date, time } as DateAndTime)
+    this.orderTicketService.getUserNameAndSurname()
     .subscribe(userNameAndSurname => {
       this.userNameAndSurname = userNameAndSurname;
+      this.nameIsGot = true;
     });
   }
 
-  Name()
+  getChoosenDate()
   {
-    console.log(this.userNameAndSurname);
+    return this.date.getDate() +  "." + this.date.getMonth()  + "."  + this.date.getFullYear();
   }
 
+  sendTicketEmail()
+  {
+    this.orderTicketService.sendTicketEmail().subscribe(ticketIsSent => {
+      this.ticketIsSent  = true;
+    });
+  }
 }

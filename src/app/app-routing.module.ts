@@ -45,8 +45,9 @@ const routes: Routes = [
   { path: 'api/v1/ticket', component: TicketComponent },
   { path: 'api/v1/tickets/:ticketCreation', component: TicketComponent },
   { path: 'api/v1/ticketView', component: TicketViewComponent },
-  { path: 'api/v1/tickets/:getUserNameAndSurname', component: TicketViewComponent }
-  
+  { path: 'api/v1/tickets/:getUserNameAndSurname', component: TicketViewComponent },
+  { path: 'api/v1/tickets/getTicketsOfUser', component: TicketViewComponent }
+
 ];
 
 @NgModule({

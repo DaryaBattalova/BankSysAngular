@@ -1,18 +1,29 @@
 
-<h1>Your ticket:</h1>
-<table border="0" cellpadding="4" cellspacing="4" style="width:300pt;margin:auto;">
+<div class="background_img">
+<h1 align="center" style="padding:15pt;">Your ticket:</h1>
+<div *ngIf="nameIsGot">
+<table class ="ticket" border="0" cellpadding="4" cellspacing="4" style="width:300pt;margin:auto;">
   <tr>
   <td height="3" style="border: 1pt solid #000000;" align="left"><b>Date:</b></td>
-  <td height="3" style="border: 1pt solid #000000;" align="left">{{this.date}}</td>
+  <td height="3" style="border: 1pt solid #000000;" align="left">{{this.shortDate}}</td>
   </tr>
   <tr>
   <td height="3" style="border: 1pt solid #000000;" align="left"><b>Time:</b></td>
   <td height="3" style="border: 1pt solid #000000;" align="left">{{this.time}}</td>
-  </tr>    
+  </tr>  
+  <tr>
+    <td height="3" style="border: 1pt solid #000000;" align="left"><b>Name:</b></td>
+    <td height="3" style="border: 1pt solid #000000;" align="left">{{this.userNameAndSurname[0]}}</td>
+    </tr> 
+    <tr>
+      <td height="3" style="border: 1pt solid #000000;" align="left"><b>Surname:</b></td>
+      <td height="3" style="border: 1pt solid #000000;" align="left">{{this.userNameAndSurname[1]}}</td>
+      </tr>   
 </table>
-<div>
-  <button (click)="newMessage()">press</button>
 </div>
-<div>
-  <button (click)="Name()">press1</button>
+<h5 align="center" style="padding:20pt;">Thank you for using banking system.</h5>
+<h5 align="center">Please check your email to see you ticket.</h5>
+<h5 align="center">Hope to see you again!</h5>
+
+
 </div>

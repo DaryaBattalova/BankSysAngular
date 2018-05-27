@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { BankIdAndDate } from '../../models/bank/bankIdAndDate';
 import { TicketInfo } from '../../models/bank/TicketInfo';
 import { DateAndTime } from '../../models/bank/DateAndTime';
+import { CurrencyExchangeTicket } from '../../models/bank/CurrencyExchangeTicket';
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -23,7 +24,15 @@ export class OrderTicketService {
     return this.http.post<any>(this.ticketUrl + "ticketCreation", ticketCreation, { headers: this.authService.getAuthHeader() });
   }
 
-  getUserNameAndSurname(dateAndTime: DateAndTime): Observable<any>{
-    return this.http.post<any>(this.ticketUrl + "getUserNameAndSurname", dateAndTime, { headers: this.authService.getAuthHeader() });
+  getUserNameAndSurname(): Observable<any>{
+    return this.http.get<any>(this.ticketUrl + "getUserNameAndSurname", { headers: this.authService.getAuthHeader() });
+  }
+
+  getTicketsOfUser(): Observable<CurrencyExchangeTicket[]>{
+    return this.http.get<CurrencyExchangeTicket[]>(this.ticketUrl + "getTicketsOfUser", { headers: this.authService.getAuthHeader() });
+  }
+
+  sendTicketEmail(): Observable<any>{
+    return this.http.get<any>(this.ticketUrl + "sendTicketEmail", { headers: this.authService.getAuthHeader() });
   }
 }

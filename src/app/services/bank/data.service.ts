@@ -10,7 +10,7 @@ export class DataService {
   private dateChosenByUser = new BehaviorSubject<Date>(new Date);
   currentDateChosenByUser = this.dateChosenByUser.asObservable();
 
-  private timeChosenByUser = new BehaviorSubject<string>("default message");
+  private timeChosenByUser = new BehaviorSubject<string>("00:00");
   currentTimeChosenByUser = this.timeChosenByUser.asObservable();
 
   private userName = new BehaviorSubject<string>("user name");

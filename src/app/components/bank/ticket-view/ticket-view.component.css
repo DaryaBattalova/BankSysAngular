@@ -3,3 +3,17 @@
     height: 3;
     border-style: 1pt solid #000000;
 }
+
+.background_img {
+    height: 93vh;
+    background-size: 100%;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    background-image : url('/assets/brand/order-ticket-background.jpg')    
+  }
+
+  .ticket
+  {
+      background-color: beige;
+  }

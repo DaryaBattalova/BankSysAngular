@@ -5,6 +5,7 @@
 
 .order-ticket-heading  {
     color: #383380;
+    padding-top: 15pt;
   }
 
   .background_img {
@@ -19,5 +20,11 @@
 .timeTable
 {
   background-color: beige;
+}
+
+.order-ticket
+{
+  margin: 250;
+  
 }
 

@@ -5,7 +5,8 @@
   }
   
   .order-ticket-heading  {
-    margin-left: 45px;
+    padding-top: 20px;
+    padding-left: 45px;
     color: #383380;
   }
 
@@ -28,5 +29,17 @@
 
   .container{
     margin: 30px;
+  }
+
+  .get-ticket-button
+  {
+    margin-top: 30px;
+  }
+
+  .hidden-message
+  {
+    margin-top: 30px;
+    margin-left: 45px;
+    width: 335px;
   }
 

@@ -87,7 +87,7 @@ import { DataService } from './services/bank/data.service';
     BankWorkerService,
     OrderTicketService,
     DataService
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

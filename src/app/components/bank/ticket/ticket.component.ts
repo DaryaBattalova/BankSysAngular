@@ -7,56 +7,63 @@ import { DataService } from '../../../services/bank/data.service';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  styleUrls: ['./ticket.component.css'],
 })
+
 export class TicketComponent implements OnInit {
-  public date: string;
+
   public bankId: number;
   public listOfFreeTimes: string[];
   public bankIdAndDate: BankIdAndDate = new BankIdAndDate();
-  public times: string[];
   public dateIsChosen: Boolean;
   public chosenTime: any;
   public chosenDate: Date;
-  public flag: string;
   public cellHasColor: Boolean;
   public curDate: string;
   public userNameAndSurName: string[];
   public name: string;
-  public d: string;
+  public ticketIsCreated: Boolean;
+  public invalidDate: Boolean;
 
-  constructor(private data: DataService, private orderTicketService: OrderTicketService) { }
+  constructor( private data: DataService, private orderTicketService: OrderTicketService) {
+   }
 
   message: string;
 
+  
   ngOnInit() {
     this.dateIsChosen = false;
     this.cellHasColor = false;
     this.chosenTime = "00:00";
     this.data.currentMessage.subscribe(message => this.message = message);
     this.bankId = Number(this.message);
+    this.ticketIsCreated = false;
+    this.invalidDate = false;
   } 
 
   getTicket() {
     this.createTicket(this.bankId, this.chosenDate, this.chosenTime);
   }
 
+
+
   onDateChanged(choosedDate: Date) {
     if(choosedDate >= new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()))
     {
       this.chosenDate = choosedDate;
       this.data.changeDate(this.chosenDate);
+      this.invalidDate = false;      
       this.getListOfFreeTimeByDay(this.bankId , this.chosenDate);
     }
     else{
-      alert("date should be greater than today")
+      this.invalidDate = true;
+      this.dateIsChosen = false;
     }
 
   }
 
   onCellClick(event:any)
   {
-    console.log(event);
     this.chosenTime = event.target.innerHTML;
     this.cellHasColor = true;
     this.data.changeTime(this.chosenTime);
@@ -65,7 +72,6 @@ export class TicketComponent implements OnInit {
 
    getListOfFreeTimeByDay(bankId: number, date: Date): void
   {
-    //this.d = this.getChoosenDate();
     this.orderTicketService.getListOfFreeTime({ bankId, date } as BankIdAndDate)
     .subscribe(listOfFreeTimes => {
       this.listOfFreeTimes = listOfFreeTimes;
@@ -75,18 +81,11 @@ export class TicketComponent implements OnInit {
 
   createTicket(bankId: number, date: Date, time: string)
   {
-     // console.log("forTicket: " + bankId + " " + date + " " + time );
       this.orderTicketService.createTicket({ bankId, date, time } as TicketInfo)
       .subscribe(userNameAndSurName => {
         this.userNameAndSurName = userNameAndSurName;
-     //   this.name = this.userNameAndSurName[0];
-        console.log("name: " + this.name);
-        this.data.changeName(this.userNameAndSurName[0]);
-
+        this.ticketIsCreated = true;
       });
-
-     // console.log("name1: " + this.userNameAndSurName[0]);
-     // this.data.changeSurname(this.userNameAndSurName[1]);
   }
 
   getChoosenDate()
