@@ -1,0 +1,13 @@
+.background_img {
+    height: 93vh;
+    background-size: 100%;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    background-image : url('/assets/brand/bank-building.jpg');
+  }
+
+  .updRates
+  {
+      background-color: rgb(70, 103, 133);
+  }

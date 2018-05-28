@@ -32,7 +32,7 @@ export class OrderTicketService {
     return this.http.get<CurrencyExchangeTicket[]>(this.ticketUrl + "getTicketsOfUser", { headers: this.authService.getAuthHeader() });
   }
 
-  sendTicketEmail(): Observable<any>{
-    return this.http.get<any>(this.ticketUrl + "sendTicketEmail", { headers: this.authService.getAuthHeader() });
+  sendTicketEmail(dateAndTime: DateAndTime): Observable<any>{
+    return this.http.post<any>(this.ticketUrl + "sendTicketEmail", dateAndTime, { headers: this.authService.getAuthHeader() });
   }
 }

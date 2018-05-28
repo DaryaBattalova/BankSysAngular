@@ -24,6 +24,7 @@ export class TicketComponent implements OnInit {
   public name: string;
   public ticketIsCreated: Boolean;
   public invalidDate: Boolean;
+  ticketIsSent: Boolean;
 
   constructor( private data: DataService, private orderTicketService: OrderTicketService) {
    }
@@ -44,8 +45,6 @@ export class TicketComponent implements OnInit {
   getTicket() {
     this.createTicket(this.bankId, this.chosenDate, this.chosenTime);
   }
-
-
 
   onDateChanged(choosedDate: Date) {
     if(choosedDate >= new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()))

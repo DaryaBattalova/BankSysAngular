@@ -1,0 +1,64 @@
+<div class="background_img page-background">
+    <div class="container">
+      <table *ngIf="ratesAreGot" class="table table-condensed">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>USD(buy)</th>
+            <th>USD(sell)</th>
+            <th>EUR(buy)</th>
+            <th>EUR(sell)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="timeTableRow"  >
+            <td>{{rates.bank.name}}</td>
+            <td>{{rates.bank.address}}</td>
+            <td>{{rates.usdPurchase}}</td>
+            <td>{{rates.usdSale}}</td>
+            <td>{{rates.eurPurchase}}</td>
+            <td>{{rates.eurSale}}</td>
+          </tr>
+          <tr>
+              <button *ngIf="ratesAreGot" type="submit" class="btn btn-outline-success" (click)="onUpdateRatesClick()">Update rates</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div *ngIf="updateRatesClicked">
+        <table border="0" cellpadding="4" cellspacing="4" style="width:300pt;margin:auto;">
+          <tr class ="updRates">
+          <td height="3" style="border: 1pt solid #000000;" align="left"><b>USD purchase:</b></td>
+          <td height="3" style="border: 1pt solid #000000;" align="left">
+              <input #USDPurchase type="text" (input) = "onUSDPurchaseChange(USDPurchase.value)">
+          </td>
+          </tr>
+          <tr class ="updRates">
+          <td height="3" style="border: 1pt solid #000000;" align="left"><b>USD sale:</b></td>
+          <td height="3" style="border: 1pt solid #000000;" align="left">
+              <input #USDSale type="text" (input) = "onUSDSaleChange(USDSale.value)">
+          </td>
+          </tr>  
+          <tr class ="updRates">
+            <td height="3" style="border: 1pt solid #000000;" align="left"><b>EUR purchase:</b></td>
+            <td height="3" style="border: 1pt solid #000000;" align="left">
+                <input #EURPurchase type="text" (input) = "onEURPurchaseChange(EURPurchase.value)">
+            </td>
+            </tr> 
+            <tr class ="updRates">
+              <td height="3" style="border: 1pt solid #000000;" align="left"><b>EUR sale:</b></td>
+              <td height="3" style="border: 1pt solid #000000;" align="left">
+                  <input #EURSale type="text" (input) = "onEURSaleChange(EURSale.value)">
+              </td>
+              </tr>
+              <tr>
+                  <td height="3"  align="left"><b></b></td>
+                  <td height="3"  align="left">
+                      <button (click) = "getInfo()" *ngIf="AllIsChosen" style="margin: 10pt;" type="submit" class="btn btn-success">Submit</button>
+                    </td>
+              </tr>
+        </table>
+  </div>  

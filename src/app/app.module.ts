@@ -40,6 +40,7 @@ import { OrderTicketService } from './services/bank/order-ticket.service';
 import { TicketComponent } from './components/bank/ticket/ticket.component';
 import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.component';
 import { DataService } from './services/bank/data.service';
+import { WorkerExchangeRatesComponent } from './components/bank//worker-exchange-rates/worker-exchange-rates.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DataService } from './services/bank/data.service';
     RegisterNotificationComponent,
     OrderTicketComponent,
     TicketComponent,
-    TicketViewComponent
+    TicketViewComponent,
+    WorkerExchangeRatesComponent
   ],
   imports: [
     BrowserModule,

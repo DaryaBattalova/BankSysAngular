@@ -3,8 +3,14 @@ import { Account } from '../../../models/user-management/account';
 import { AccountService } from '../../../services/user-management/account.service';
 import { AuthService } from '../../../services/authentication/auth.service';
 import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PagerService } from '../../../services/pager.service';
+import { UserLogin } from '../../../models/user-management/userLogin';
+import { ProfileService } from '../../../services/user-management/profile.service';
+import { Token } from '../../../models/user-management/token';
+import { IUser } from '../../../models/user/user';
+import { UserId } from '../../../models/user-management/userid';
+import { UserRegister } from '../../../models/user-management/userRegister';
 
 @Component({
   selector: 'app-user-list',
@@ -13,6 +19,7 @@ import { PagerService } from '../../../services/pager.service';
 })
 
 export class UserListComponent implements OnInit {
+
   page: number;
   amount = 25;
   allAccountsCount: number;

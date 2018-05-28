@@ -28,7 +28,7 @@ export class TicketViewComponent implements OnInit {
     this.nameIsGot = false;
     this.getUserNameAndSurname();
     this.ticketIsSent = false;
-    this.sendTicketEmail();
+    this.sendTicketEmail(this.date, this.time);
   }
 
 
@@ -46,9 +46,9 @@ export class TicketViewComponent implements OnInit {
     return this.date.getDate() +  "." + this.date.getMonth()  + "."  + this.date.getFullYear();
   }
 
-  sendTicketEmail()
+  sendTicketEmail(date: Date, time: string)
   {
-    this.orderTicketService.sendTicketEmail().subscribe(ticketIsSent => {
+    this.orderTicketService.sendTicketEmail({date, time} as DateAndTime).subscribe(ticketIsSent => {
       this.ticketIsSent  = true;
     });
   }

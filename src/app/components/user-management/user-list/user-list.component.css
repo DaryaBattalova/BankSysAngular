@@ -1,4 +1,4 @@
-
+/* 
 .clickable {
   cursor: pointer;
 }
@@ -32,4 +32,22 @@ td {
 
 .btn {
   margin: 1%;
+} */
+
+.vcenter-display {
+  display: inline-block;
+}
+
+.background_img {
+  height: 93vh;
+  background-size: 100%;
+  border-radius: 0;
+  background-position: center;
+  background-size: cover;
+  background-image : url('/assets/brand/western_bank.jpg');
+}
+
+.sel
+{
+  width: 350px;
 }

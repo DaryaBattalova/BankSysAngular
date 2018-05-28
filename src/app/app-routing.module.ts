@@ -20,6 +20,7 @@ import { RegisterNotificationComponent } from './components/security/register-no
 import { OrderTicketComponent } from './components/bank/order-ticket/order-ticket.component';
 import { TicketComponent } from './components/bank/ticket/ticket.component';
 import { TicketViewComponent } from './components/bank/ticket-view/ticket-view.component';
+import { WorkerExchangeRatesComponent } from './components/bank//worker-exchange-rates/worker-exchange-rates.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'api/v1/tickets/:ticketCreation', component: TicketComponent },
   { path: 'api/v1/ticketView', component: TicketViewComponent },
   { path: 'api/v1/tickets/:getUserNameAndSurname', component: TicketViewComponent },
-  { path: 'api/v1/tickets/getTicketsOfUser', component: TicketViewComponent }
+  { path: 'api/v1/tickets/getTicketsOfUser', component: TicketViewComponent },
+  { path: 'workerExchangeRates', component: WorkerExchangeRatesComponent }
 
 ];
 

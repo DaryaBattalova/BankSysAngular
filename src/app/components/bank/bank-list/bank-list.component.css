@@ -6,5 +6,10 @@ tr.timeTableRow:hover { background-color:#a9a6cc; cursor: pointer}
     border-radius: 0;
     background-position: center;
     background-size: cover;
-    background-image : url('/assets/brand/bank-background.jpg');
+    background-image : url('/assets/brand/papers.jpg');
+  }
+
+  .bank-table
+  {
+    background-color: rgb(184, 165, 252);
   }
