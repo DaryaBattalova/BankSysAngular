@@ -23,7 +23,6 @@ import { AccountService } from './services/user-management/account.service';
 import { ProfileService } from './services/user-management/profile.service';
 import { StorageService } from './services/storage/storage.service';
 import { AuthService } from './services/authentication/auth.service';
-import { PagerService } from './services/pager.service';
 import { AccountInfoComponent } from './components/user-management/account-info/account-info.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { BankListComponent } from './components/bank/bank-list/bank-list.component';
@@ -83,7 +82,6 @@ import { WorkerExchangeRatesComponent } from './components/bank//worker-exchange
     ProfileService,
     StorageService,
     AuthService,
-    PagerService,
     BankService,
     CurrencyExchangeService,
     BankWorkerService,

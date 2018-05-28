@@ -1,25 +1,25 @@
 <div class="container-fluid text-center background-component background_img">
 <h3 class="order-ticket-heading" >Currency converter</h3>
-  <table class="table">
+  <table class="table timeTable">
     <tr>
       <td>
-        <p>Currency you have:</p>
+        <p class="table-text">Currency you have:</p>
         <select [(ngModel)]="initialCurrValue" (change) = "onBaseSelectChange(initialCurrValue)">
           <option>USD</option>
           <option>EUR</option>
           <option>BYN</option>
         </select>
-        <p>Sum:</p>
+        <p class="table-text">Sum:</p>
         <input #initialCurrency type="text" (input) = "onInitialCurrencyInputChange(initialCurrency.value)">
       </td>
       <td>
-        <p>Currency you need:</p>
+        <p class="table-text">Currency you need:</p>
         <select [(ngModel)]="goalCurrValue"(change) = "onGoalSelectChange(goalCurrValue)">
           <option>BYN</option>
           <option>USD</option>
           <option>EUR</option>
         </select>
-        <p>Sum:</p>
+        <p class="table-text">Sum:</p>
         <input #resultSum type="text" readonly value={{this.result}}>
       </td>
     </tr>

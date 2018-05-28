@@ -13,24 +13,33 @@
     border-radius: 0;
     background-position: center;
     background-size: cover;
-    background-image : url('/assets/brand/confirm-email-background.jpg')    
+    background-image : url('/assets/brand/biznes.jpg')    
+}
+
+.background-div
+{
+    background-color: rgb(38, 39, 61);
+    height: 120pt;
 }
 
 .confirm-title {
-    padding-top: 8%; 
+    padding-top: 5pt; 
+    padding-bottom: 5pt; 
 }
 
 .confirm-text {
-    margin-left: 10%;
+    margin-left: 140pt;
+    color: #d2d1e6;
 }
 
 .secondary-green-btn {
-    color: #28A745;
-    border-color: #28A745;
-    
+    margin-top: 10pt;
+    margin-left: 140pt;
 }
 
-.secondary-green-btn:hover {
+/* .secondary-green-btn:hover {
     color: white;
     background-color: #28A745;
-}
+    margin-left: 30pt;
+    margin-top: 10pt;
+} */

@@ -1,9 +1,11 @@
-<div class="page-background">
+<div class="background_img">
+    <div class="background-div">
     <div class="confirm-text">
-        <h1 class="display-4 confirm-title">Thank you for registration!</h1>
-        <p *ngIf="showEmailSend" class="lead">
-            An email with a link to confirm registration has been sent to your email address.
-        </p>
-        <a routerLink="/main" class="btn btn-outline-secondary secondary-green-btn">Back to the main page</a>
+        <h1 class="display-4 confirm-title">You have sucessfully registered!</h1>
+        <h2 *ngIf="showEmailSend" class="lead">
+            Please, check your email and follow the link to confirm your registration.
+        </h2>
     </div>
+</div>
+<a routerLink="/main" class="btn btn-success secondary-green-btn">Back to the main page</a>
 </div>

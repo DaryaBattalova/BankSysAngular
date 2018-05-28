@@ -4,7 +4,7 @@
   button.exchange { margin: 10px 1px0; cursor: pointer}
 
 .order-ticket-heading  {
-    color: #383380;
+    color: #e3e2f8;
     padding-top: 15pt;
   }
 
@@ -14,17 +14,20 @@
     border-radius: 0;
     background-position: center;
     background-size: cover;
-    background-image : url('/assets/brand/moneyorigami.jpeg')    
+    background-image : url('/assets/brand/Business.jpg')    
 }
 
+.table-text
+{
+  color: #d2d1e6;
+}
 .timeTable
 {
-  background-color: beige;
+  background-color: rgb(38, 39, 61);
 }
 
 .order-ticket
 {
   margin: 250;
-  
 }
 

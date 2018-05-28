@@ -4,7 +4,6 @@ import { AccountService } from '../../../services/user-management/account.servic
 import { AuthService } from '../../../services/authentication/auth.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PagerService } from '../../../services/pager.service';
 import { UserLogin } from '../../../models/user-management/userLogin';
 import { ProfileService } from '../../../services/user-management/profile.service';
 import { Token } from '../../../models/user-management/token';
@@ -34,8 +33,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private accountService: AccountService,
     private authService: AuthService,
-    private router: Router,
-    private pagerService: PagerService) { }
+    private router: Router) { }
 
   ngOnInit() {
     if (!this.authService.checkAccess(UserListComponent.name)) {
@@ -65,7 +63,6 @@ export class UserListComponent implements OnInit {
       page = 1;
     }
 
-    this.pager = this.pagerService.getPager(this.allAccountsCount, page, this.amount);
     this.loadAccounts(
       this.pager.currentPage,
       this.pager.pageSize,
