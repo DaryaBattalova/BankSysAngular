@@ -1,27 +1,31 @@
 <div class="background_img page-background">
+  <div class ="space-div"></div>
+  <div class="background-div">
     <div>
-      <h3 class="order-ticket-heading">Take a ticket to bank</h3>
+      <h3 class="order-ticket-heading container">Take a ticket to bank</h3>
     </div>
     <div [hidden]="!invalidDate" class="custom-alert alert-danger hidden-message">
         Date should be greater then today.
     </div>
     <div class="container">
-      <label>
+      <label class="order-ticket-heading">
         Choose a date please:
         <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]="dat" (ngModelChange)="onDateChanged($event)">
         <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
       </label>
     </div>
+  </div>
     <div *ngIf="dateIsChosen" class="container row">
       <div *ngFor="let item of listOfFreeTimes; let idx=index" class="timeTable col-md-2">
         <div (click)="onCellClick($event)" class="timeTableCell">{{item}}</div>
       </div>
     </div>
   
-    <div class="container">
-      <div *ngIf="cellHasColor">You have chosen a ticket for {{this.curDate}} at {{this.chosenTime}}</div>
-      <div *ngIf="cellHasColor" class="get-ticket-button">
+    <div *ngIf="cellHasColor" class="background-div">
+      <h3 class="order-ticket-confirm-text" *ngIf="cellHasColor">You have chosen a ticket for {{this.curDate}} at {{this.chosenTime}}</h3>
+    </div>
+
+      <div *ngIf="cellHasColor" class="get-ticket-button container">
           <button class="btn btn-success takeTicket" (click)="getTicket()" routerLink = "/api/v1/ticketView" >Get ticket!</button>
       </div>
-    </div>
   </div>

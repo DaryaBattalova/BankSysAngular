@@ -6,8 +6,9 @@
   
   .order-ticket-heading  {
     padding-top: 20px;
-    padding-left: 45px;
-    color: #383380;
+    /* padding-left: 70pt; */
+    color: beige;
+
   }
 
   .background_img {
@@ -16,8 +17,25 @@
     border-radius: 0;
     background-position: center;
     background-size: cover;
-    background-image : url('/assets/brand/building.png')    
+    background-image : url('/assets/brand/Business.jpg')    
   }
+
+  .background-div
+  {
+    background-color:  rgb(38, 39, 61);
+    border-top: #d2d1e6 1pt solid;
+    border-bottom: #d2d1e6 1pt solid;
+  }
+
+  .order-ticket-confirm-text
+  {
+    color: beige;
+  }
+
+  .space-div
+{
+  height: 40pt;
+}
 
   .timeTable {
     width: 50px;
